@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html>
+<!-- Head -->
+<head>
+  <meta charset="utf-8">
+  <title>Social Token (SOCL)</title>
+  <link rel="shortcut icon" type="image/jpg" href="favicon_32.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+
+  <meta name="viewport" contant="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta property="og:image" content="logo_big.png" />
+  <meta property="og:title" content="Social Coin" />
+  <meta property="og:description" content="A share to earn cryptocurrency" /> 
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  
+  <style type="text/css">
+      a
+      {
+        color: white;
+        text-decoration: none;
+      }
+      a:hover
+      {
+        color: white;
+        text-decoration: underline;
+      }
+      a:visited 
+    {
+       text-decoration: none; 
+       color: white;
+      }
+      body
+      {
+        background-image: url(bkg1.jpg);
+        background-attachment: fixed;
+        min-width: 700px;
+        overflow-x: hidden;
+      }
+      table, th, td 
+      {
+        border:1px solid black;
+        border-collapse: collapse;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      @font-face 
+      {
+        font-family: titleFont;
+        src: url(Avalors.otf);
+      }
+
+      
+      .bar
+      {
+        width: 100%;
+        height: 60px;
+        background-color: #333333;
+      }
+      .small_logo
+      {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+      .title_presentation
+      {
+        position: absolute;
+        top: 200px;
+        left: 10%;
+        width: 400px;
+      }
+      .main_container
+      {
+        width: 100%;
+        height: 1000px;
+      }
+      .mobile_logo
+      {
+        position: absolute;
+        top: -100px;
+        width: 400px;
+        height: 100px;
+        transform: scale(0.3);
+      }
+      .buy_section_txt
+      {
+        font-size: medium; 
+        color: white;
+        padding-top: 100px; 
+        padding-left: 20%; 
+        padding-right: 20%;
+      }
+      .paper_txt
+      {
+        color: white;
+        padding-top: 100px;
+        padding-left: 20%;
+        padding-right: 20%;
+        font-size: medium;
+      }
+      .phase1
+      {
+        font-size: medium;
+      }
+      .phase2
+      {
+        font-size: medium;
+      }
+      .phase3
+      {
+        font-size: medium;
+      }
+      .phase4
+      {
+        font-size: medium;
+      }
+      .claim_rewards
+      {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 150px;
+        height: 60px;
+        color: white;
+        /* background-color: blue;*/
+        padding-top: 20px;
+        padding-left: 45px;
+      }
+      .connect_wallet
+      {
+        position: fixed;
+        bottom: 0px;
+        right: 100px;
+        /* background-color: #D3D3D3; */
+        background: linear-gradient(120deg, #D3D3D3, #EBEBEB);
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-right: 20px;
+        padding-left: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border: solid 1px #898989;
+        z-index: 3;
+      }
+
+
+      @media only screen and (max-width: 1200px) 
+      {
+        .bar
+        {
+          height: 100px;
+        }
+        .small_logo
+        {
+          position: absolute;
+          top: 200px;
+          top: 20px;
+          left: 10px;
+        }
+        .title_presentation
+        {
+          position: absolute;
+          left: 200px;
+          transform: scale(1.7);
+          margin-left: 9%;
+        }
+        .main_container
+        {
+          position: relative;
+          top: 20px;
+          height: 1500px;
+        }
+        .mobile_logo
+        {
+          position: absolute;
+          top: -130px;
+          transform: scale(0.5);
+        }
+
+        .big_logo
+        {
+          display: none;
+        }
+        .buy
+        {
+          display: none;
+        }
+        .roadmap
+        {
+          display: none;
+        }
+        .whitepaper
+        {
+          display: none;
+        }
+        .contact
+        {
+          display: none;
+        }
+        .crypto_name
+        {
+          font-size: xx-large;
+        }
+
+        .paper_txt
+        {
+          
+        }
+        .contact_txt
+        {
+          
+        }
+        .websiteFooter
+        {
+         
+        }
+        .roadmap_table
+        {
+          /*display: none;*/
+        }
+        .phase1
+        {
+          font-size: x-large;
+        }
+        .phase2
+        {
+          font-size: x-large;
+        }
+        .phase3
+        {
+          font-size: x-large;
+        }
+        .phase4
+        {
+          font-size: x-large;
+        }
+
+        .buy_section_txt
+        {
+          font-size: x-large;
+        }
+        .paper_txt
+        {
+          font-size: xx-large;
+        }
+        .claim_rewards
+        {
+          font-size: xx-large;
+          margin-top: 5px;
+          margin-right: 30px;
+        }
+        .bar_logo
+        {
+          position: absolute;
+          top: 5px;
+          width: 300px;
+          height: 100%;
+        }
+        .connect_wallet
+        {
+          position: fixed;
+          bottom: 0px;
+          right: 10%;
+          width: 80%;
+          font-size: xx-large;
+          /* background-color: #D3D3D3; */
+          background: linear-gradient(120deg, #D3D3D3, #EBEBEB);
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-right: 20px;
+          padding-left: 20px;
+        }
+      }
+      .crypto_name
+      {
+        position: absolute;
+        top: 20px;
+        left: 60px;
+        color: white;
+      }
+      .buy
+      {
+        position: absolute;
+        top: 0px;
+        right: 400px;
+        width: 100px;
+        height: 60px;
+        color: white;
+        /* background-color: blue;*/
+        padding-top: 20px;
+        padding-left: 45px;
+      }
+      .roadmap
+      {
+        position: absolute;
+        top: 0px;
+        right: 300px;
+        width: 100px;
+        height: 60px;
+        color: white;
+        /* background-color: blue; */
+        padding-top: 20px;
+        padding-left: 25px;
+      }
+      .whitepaper
+      {
+        position: absolute;
+        top: 0px;
+        right: 200px;
+        width: 100px;
+        height: 60px;
+        color: white;
+        /* background-color: blue; */
+        padding-top: 20px;
+        padding-left: 25px;
+      }
+      .contact
+      {
+        position: absolute;
+        top: 0px;
+        right: 100px;
+        width: 100px;
+        height: 60px;
+        color: white;
+        /* background-color: blue; */
+        padding-top: 20px;
+        padding-left: 25px;
+      }
+      .big_title
+      {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-family: titleFont;
+        width: 400px;
+      }
+      .contract
+      {
+        position: absolute;
+        top: 80px;
+        left: 0px;
+        color: #333333;
+      }
+      .box_contract
+      {
+        position: absolute;
+        top: 110px;
+        left: 0px;
+        width: 400px;
+        height: 40px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding-top: 10px;
+      }
+      .presentation_textbox
+      {
+        position: absolute;
+        top: 170px;
+        left: 0px;
+        width: 400px;
+        background: rgba(51, 51, 51, 0.2);
+        /*background-color: #333333;*/
+        border-radius: 10px;
+        color: black;
+      }
+      .big_logo
+      {
+        position: absolute;
+        top: 170px;
+        left: 750px;
+        float: right;
+      }
+      .buy_section
+      {
+        position: relative;
+        top: 50px;
+        color: white;
+        font-family: titleFont;
+        text-decoration: underline;
+      }
+      .roadmap_section
+      {
+        position: relative;
+        top: 50px;
+        color: #333333;
+        font-family: titleFont;
+        text-decoration: underline;
+      }
+      .whitepaper_section
+      {
+        position: relative;
+        top: 50px;
+        color: white;
+        font-family: titleFont;
+        text-decoration: underline;
+      }
+      .contact_section
+      {
+        position: relative;
+        top: 50px;
+        color: #333333;
+        font-family: titleFont;
+        text-decoration: underline;
+      }
+      .contact_txt
+      {
+        padding-top: 100px;
+        padding-left: 20%;
+        padding-right: 20%;
+        word-wrap: break-word;
+        font-size: x-large;
+      }
+      .userWallet
+      {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        background-color: lightblue;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        z-index: 3;
+      }
+      .websiteFooter
+      {
+        width:100%; 
+        height:300px; 
+        background-color:#333333; 
+        padding-top:130px;
+        color: white; 
+        font-size: medium;
+      }
+
+.button-5 {
+  position: relative;
+  top: 25px;
+  align-items: center;
+  background-clip: padding-box;
+  /*background-color: #fa6400;*/
+  background-color: #30902B;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  padding-left:70px; 
+  padding-right:70px;
+  margin-left: -10px;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #58B154;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #367933;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+      
+#amount_iotx
+{
+  display: none;
+}
+
+    .triangle1
+    {
+      width: 0;
+      height: 0;
+      border-top: 0px solid transparent;
+      border-left: 100px solid #30902B;
+      border-bottom:100px solid transparent;
+    }
+  </style>
+
+  <script>
+    var provider = 'https://babel-api.testnet.iotex.io';
+    var web3Provider = new Web3.providers.HttpProvider(provider);
+    var web3 = new Web3(web3Provider);
+
+    var client_account = window.userWalletAddress;
+
+      const jsonInterface = [{
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+        }],
+        "name": "Bought",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "buy",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [{
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+        }],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "_tokenContract",
+            "type": "address"
+        }],
+        "name": "setTokenContract",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [{
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+        }],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }];
+
+      const address = '0x29DE3dc9f7dB121F47c07A6AbfD504EaA9D87286';
+      var contract = new web3.eth.Contract(jsonInterface, address);
+    </script>
+</head>
+<!-- Head -->
+
+<body>
+  <!--Nav bar-->
+  <div class="bar">
+    <a href="index.php">
+    <div class="bar_logo">
+    <span class="small_logo"><img height="40" src="small_logo_trans2.png" /></span>
+    <span class="crypto_name" id="crypt">SOCIAL COIN</span>
+    </div>
+  </a>
+
+    <span class="claim_rewards"><a href="claim_rewards.php">Register</a></span>
+    <span class="buy"><a href="#buy_box">Buy</a></span>
+    <span class="roadmap"><a href="#roadmap_box">Roadmap</a></span>
+    <span class="whitepaper"><a href="#whitepaper_box">Whitepaper</a></span>
+    <span class="contact"><a href="#contact_box">Contact</a></span>
+  </div>
+  <!--Nav bar-->
+
+  <button class="connect_wallet">
+    <div id="connect_wallet"><h4>Connect Wallet</h4></div>
+    <div id="amount_iotx"></div>
+  </button>
+  
+  <!--Main page-->
+  <div class="main_container" style="">
+    <div class="title_presentation">
+      <div class="mobile_logo"><center><img src="logo_medium.png"></center></div>
+      <center><span class="big_title"><h1>Social Coin</h1></span></center>
+      <span class="contract">CONTRACT ADDRESS:</span>
+      <span class="box_contract"><center>0xfb350676025215C64f4D384676746255B3B223EE</center></span>
+
+      <span class="presentation_textbox">
+        <h4 style="padding-left:20px; padding-right:30px; padding-top:30px; padding-bottom:40px; line-height: 1.3;">Social Token brings something new to the crypto world. With our protocol you can earn by only being active on social medias! The rewards distributed to our active community members comes from a 5% on-transfer fee. After the P2E (Play to Earn), we present you the S2E (Share to Earn). To be a part of this revolution, you must start by registering.</h4>
+      </span>
+
+      <span style="position:absolute; top:490px; width:400px;">
+      <center>
+      <h3 style="font-family: titleFont;">Initial Coin Offering</h3>
+      <br>
+      <div>
+      <input style="margin-left: -10px; transform: scale(2);" id="iotx_entry" type="text" placeholder="10 IoTex Minimum" name="buy_entry"><br>
+      <!--<input style="margin-top: 40px; margin-left: -5px; transform: scale(2); padding-left:70px; padding-right:70px;" id="buy_button" type="submit" value="Buy" onclick="" disabled>-->
+      <input class="button-5" type="submit" value="Buy" onclick="" disabled>
+
+
+      <br>
+      <div style="margin-top: 20px; font-size:x-small; padding-top:10px;">This buy function is only available during the initial offering.
+            Before sending IOTX make sure you are using IoTex Network and make sure you are
+            on the official Social Coin website (https://socialcoin.space/). Ex: You send 100 IOTX and you
+            receive 100 SOCL.
+      </div>
+      </div>
+      </center>
+      </span>
+    </div>
+
+    <span class="big_logo"><img src="logo_trans.png"/></span>
+  </div>
+  <!--Main Page-->
+
+  <!--Buy-->
+  <div id="buy_box" style="width:100%; padding-bottom:100px; background-color:#333333;">
+    <div class="triangle1"></div>
+
+    <div class="buy_section"><center><h1>How to Buy</h1></center></div>
+
+    <div class="buy_section_txt">We made a buy field on our website for the presale, to make its access more intuitive to everyone who wishes to be a founding member of the S2E revolution!<br><br>
+    1 -Download either Metamask : <a href="https://metamask.io/">https://metamask.io/</a>,  or IoPay : <a href="https://metamask.io/">https://iotex.io/iopay/</a> , which will be used to connect to our website.<br><br>
+    2 - Use a centralized exchange to buy some IOTX : such as Binance, Kucoin and Crypto.com or any others supporting the IOTX Mainnet (Be careful as Coinbase has IOTX but does not support the mainnet).<br><br>
+    3 - Send the desired amount to your wallet<br><br>
+    4 - Go login on our website and use the buy field to enter the amount of IOTX you are willing to spend!
+    </div>
+  </div>
+  <!--Buy-->
+  
+  <!--Roadmap-->
+  <div id="roadmap_box" style="width:99%; padding-bottom: 200px;">
+  <div class="roadmap_section"><center><h1>Roadmap</h1></center></div>
+
+  <div style="position: relative; top:100px; left:10%; width:90%;">
+    <h2 style="text-decoration: underline;">Phase 1:</h2>
+    <div class="phase1"><b>&#9679;Creation of the website, token, and community groups</b><br>&#9679;Pre-sale followed by the IDO on IoTeX Pad<br>&#9679;Launch of the project and first rewards distributed to the miners<br>&#9679;Advertising on multiple platforms<br>&#9679;Listing in the IoTex Metadata</div>
+    <br>
+    <h2 style="text-decoration: underline;">Phase 2:</h2>
+    <div class="phase2">&#9679;First 1000 holders<br>&#9679;Creation of the NFT reward system<br>&#9679;Listing on CoinGecko<br>&#9679;Listing on CoinMarketCap</div>
+    <br>
+    <h2 style="text-decoration: underline;">Phase 3:</h2>
+    <div class="phase3">&#9679;First distribution of the NFT rewards to our valued holders<br>&#9679;Community upgrade proposals</div>
+    <br>
+    <h2 style="text-decoration: underline;">Phase 4:</h2>
+    <div class="phase4">&#9679;Undefined</div>
+  </div>
+
+  </div>
+  <!--Roadmap-->
+
+
+<!--Whitepaper-->
+  <div id="whitepaper_box" style="width:100%; background-color:#333333; padding-bottom: 100px;">
+    <div class="triangle1"></div>
+    <div class="whitepaper_section"><center><h1>WHITEPAPER</h1></center></div>
+    
+    <div class="paper_txt"><div style="font-family: titleFont;">Goal</div><br>The goal behind this project is to give a lot more visibility to the IoTeX ecosystem. Our team believes that IoTeX is a great network with a lot of use-cases that could be implemented in most of our life’s aspects, even more with the upcoming MachineFi! We think that this network deserves to be better known and better understood. Also, our project will be a way for our sharers to generate income easily without investing money upfront.
+      <br><br><br><br>
+      <div>
+       <div style="font-family: titleFont;">Project description</div><br>
+        Social Coin will bring in a new concept: Share to Earn or S2E. Basically this concept will incentivize people to share our content on social media by rewarding them for doing it. As the community grows, we will add support to other platforms if possible. By sharing our content, registered users will be eligible to receive weekly rewards based on their activity, we call them Sharers. Each share counts as one participation and a single account has a maximum number of 1 associated address and vice-versa. Bots or suspected bots can have their account and address be blacklisted without notice. Eligible sharers will then have to go on our website to claim their earned share and those who do not claim their reward in in one week will lose them and they will be sent a wallet that will be used to organize and fund community events (giveaways, challenges etc.) and for marketing. Also, later in the development of this project we will implement pooling system on our website to help users generate even more passive income with Social Coin. And we will implement an NFT reward system later.
+      </div>
+      <br><br><br>
+      <div>
+        <div style="font-family: titleFont;">Tokenomics</div><br>
+        Social Coin will have a 5% percent fee on each transfer. This fee will be sent to a contract that distributes the rewards among the sharers as they claim them. The max supply is 1 Billion $SOCL or 1000000000 $SOCL.
+        <br><br>
+        Max supply : 1 000 000 000
+      </div>
+      <br><br><br>
+      <div>
+        <div style="font-family: titleFont;">Token distribution</div><br>
+        20% Dev Fund<br>
+        10% Marketing Fund<br>
+        10% Private sale<br>
+        25% IDO<br>
+        10% Initial miner reward fund for the first x periods<br>
+        25% (The remaining) will be added to liquidity from the burn wallet (Locked for 2 years)<br>
+      </div>
+    </div>
+  </div>
+  <!--Whitepaper-->
+
+  <!--Contact-->
+  <div id="contact_box" style="width:100%; padding-bottom:100px;">
+    <div class="contact_section"><center><h1>Contact us</h1></center></div>
+    <div class="contact_txt">
+      <div>
+        <a style="color: #333333;" href="https://www.facebook.com/groups/577657780228038" class="fa fa-facebook"></a>
+        Facebook:
+        <a style="color: gray;" href="https://www.facebook.com/groups/577657780228038">https://www.facebook.com/groups/577657780228038</a>
+      </div>
+      <br>
+
+      <div>
+        <a style="color: #333333;" href="#" class="fa fa-twitter"></a>
+        Twitter:
+        <a style="color: gray;" href="#">Link here</a>
+      </div>
+      <br>
+      <div>
+        <a style="color: #333333;" href="#" class="fa fa-telegram"></a>
+        Telegram:
+        <a style="color: gray;" href="#">https://t.me/+gaJRsZqiUSUwNTE5">https://t.me/+gaJRsZqiUSUwNTE5</a>
+      </div>
+      <br>
+      <div>
+        <a style="color: #333333;" href="https://discord.gg/2AjnGaQ9Z8" class="fa fa-discord"></a>
+        Discord:
+        <a style="color: gray;" href="https://discord.gg/2AjnGaQ9Z8">https://discord.gg/2AjnGaQ9Z8</a>
+      </div>
+      <br>
+    </div>
+  </div>
+  <!--Contact-->
+
+  <!--Footer-->
+  <div class="websiteFooter">
+    <center><div>Social Token Team 2021<br>All rights reserved</div></center>
+  </div>
+  <!--Footer-->
+
+  <!-- Bakend -->
+  <script>
+    window.userWalletAddress = null;
+    const loginButton = document.getElementById('connect_wallet');
+    const userWallet = document.getElementById('userWallet');
+    const buy_button = document.getElementById('buy_button');
+    const amount_iotx = document.getElementById("amount_iotx");
+
+    var iotx_txt;
+
+    function toggleButton()
+    {
+      if(!window.ethereum){
+        loginButton.innerText = 'No Wallet Connected';
+
+        return false;
+      }
+
+      loginButton.addEventListener('click', loginWithMetamask);
+    }
+
+    async function loginWithMetamask()
+    {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+      if(!accounts){ return }
+      window.userWalletAddress = accounts[0];
+      loginButton.innerText = window.userWalletAddress;
+      amount_iotx.style.display = "block";
+      
+      web3.eth.getBalance(window.userWalletAddress, function(err, result) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(web3.utils.fromWei(result, "ether") + " ETH")
+        amount_iotx.innerText = "Iotx: " + web3.utils.fromWei(result, "ether");
+      }
+      });
+    
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+    toggleButton();
+    });
+
+
+    
+    var client_account = window.userWalletAddress; // assuming master client addr
+
+    function bButton()
+    {
+      buy_button.addEventListener('click', buyButton);
+    }
+
+
+    async function buyButton()
+    {
+      var test = document.getElementById('iotx_entry').value;
+
+      var dec_value = web3.utils.toWei(test, 'ether');
+      var dec = parseInt(dec_value, 10);
+      var hex_value = (dec).toString(16);
+      hex_value = '0x' + hex_value;
+      //web3.utils.toHex(dec_value);    
+
+      var dec_value2 = web3.utils.toWei('1', 'ether');
+      var hex_value2 = (dec_value2).toString(16);
+      hex_value2 = '0x' + hex_value2;
+
+      web3.eth.handleRevert = true;
+    
+      const nonce_value = await web3.eth.getTransactionCount(address);
+
+      const accounts = await window.ethereum.request({ 
+        method: 'eth_sendTransaction',
+        params:[{
+          from: window.userWalletAddress,
+          data: contract.methods.buy().encodeABI(),
+          gas: '25000',
+          to: address, // Contract address
+          value: hex_value
+          //nonce: nonce_value.toString()
+        }]
+      });
+
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+    bButton();
+    });
+  </script>
+  <!-- Bakend -->
+</body>
+
+</html>
